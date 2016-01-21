@@ -4,6 +4,6 @@ Welcome to LeetCode-Team!
 
 Team members:  
 
-Yangkun Huang
-Bingran Li
-Kan Zheng
+Yangkun Huang    
+Bingran Li    
+Kan Zheng    
