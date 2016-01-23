@@ -42,19 +42,3 @@ vector<int> getRow(int rowIndex) {
 	return *it;
 }
 
-int main()
-{
-	//vector<int> v,w(3,2);
-	//for (int i = 0; i < 10; i++)
-	//v.push_back(i);
-	//v.push_back(1); v.push_back(2); v.push_back(1);
-	///*for (int i = 0; i < v.size(); i++)
-	//	cout << v[i] << endl;*/
-	//w = v;
-	//for (int i = 0; i < w.size(); i++)
-	//	cout << w[i] << endl;
-	vector<int> w;
-	w = getRow(5);
-
-	system("pause");
-}
