@@ -27,18 +27,6 @@ bool containsNearbyDuplicate(vector<int>& nums, int k) {
 	//return false;
 }
 
-// set»á½«ÔªËØÅÅĞò
-// equal_range ·µ»ØÒ»¸öÁ½¸öµü´úÆ÷ÔªËØµÄpairÀàĞÍ
-// µü´úÆ÷×ª»»·´Ïòµü´úÆ÷ Õı×ª·´Î»ÖÃ²»±ä£¬·´×ªÕıÏòÄ©Î²ÒÆÒ»Î»
-int main()
-{
-	vector<int> v;
-	/*for (int i = 0; i < 10; i++)
-		 v.push_back(i);*/
-	v.push_back(1); v.push_back(2); v.push_back(1);
-	for (int i = 0; i < v.size(); i++)
-	cout << v[i] << endl;
-	cout << containsNearbyDuplicate(v, 1) << endl;
-
-	system("pause");
-}
+// setä¼šå°†å…ƒç´ æ’åº
+// equal_range è¿”å›ä¸€ä¸ªä¸¤ä¸ªè¿­ä»£å™¨å…ƒç´ çš„pairç±»å‹
+// è¿­ä»£å™¨è½¬æ¢åå‘è¿­ä»£å™¨ æ­£è½¬åä½ç½®ä¸å˜ï¼Œåè½¬æ­£å‘æœ«å°¾ç§»ä¸€ä½
