@@ -10,17 +10,6 @@ void rotate(vector<int>& nums, int k) {
 	nums.erase(nums.end() - i, nums.end());
 }
 
-//insertµÄÊ¹ÓÃ ³É¶Î²åÈë
-//eraseµÄÊ¹ÓÃ ³É¶ÎÉ¾³ı
-//²»ÄÜÔÚÉ¾³ıµü´úÆ÷Ê±±éÀú£¿
-int main()
-{
-	vector<int> v(1,1);
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i] << endl;
-	rotate(v, 3);
-	cout << endl;
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i] << endl;
-	system("pause");
-}
+//insertçš„ä½¿ç”¨ æˆæ®µæ’å…¥
+//eraseçš„ä½¿ç”¨ æˆæ®µåˆ é™¤
+//ä¸èƒ½åœ¨åˆ é™¤è¿­ä»£å™¨æ—¶éå† å®¹å™¨æ›´æ–°è¿­ä»£å™¨å¤±æ•ˆ
