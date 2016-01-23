@@ -30,19 +30,6 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
 	}
 }
 
-// ÈİÆ÷¸üĞÂºóµü´úÆ÷»áÊ§Ğ§
-// insert·µ»ØÖµ
+// å®¹å™¨æ›´æ–°åè¿­ä»£å™¨ä¼šå¤±æ•ˆ
+// insertè¿”å›å€¼
 
-int main()
-{
-	int a[] = { 4, 5, 6, 0, 0, 0 }, b[] = { 1, 2, 3, 5, 6 };
-
-	vector<int> v1(a,a+6), v2(b,b+3);
-	/*for (int i = 1; i < 10; i++)
-		v.push_back(i);*/
-	merge(v1, 3, v2, 3);
-
-	for (int i=0; i < v1.size(); i++)
-		cout<<v1[i]<<endl;
-	system("pause");
-}
