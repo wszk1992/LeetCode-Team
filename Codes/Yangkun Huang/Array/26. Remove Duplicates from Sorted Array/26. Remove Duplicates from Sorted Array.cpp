@@ -14,16 +14,4 @@ int removeDuplicates(vector<int>& nums) {
 	return nums.size();
 }
 
-// ×¢Òâ²»Òª³¢ÊÔ¶Á.endÖ¸ÏòµÄÎ»ÖÃ
-
-int main()
-{
-	vector<int> v(1, 1);
-	for (int i = 1; i < 10; i++)
-		v.push_back( i);
-
-	cout << removeDuplicates(v)	<<endl;
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i] << endl;
-	system("pause");
-}
+// æ³¨æ„ä¸è¦è¯».endæŒ‡å‘çš„ä½ç½®
