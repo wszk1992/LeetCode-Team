@@ -36,19 +36,7 @@ vector<string> summaryRanges(vector<int>& nums) {
 	return str;
 }
 
-// vector×÷Îª·µ»ØÖµ Ö±½Ó·µ»Ø²»ĞèÒªÒıÓÃ
-// string×÷ÎªvectorÀàĞÍÊä³ö stringÍ·ÎÄ¼ş¿ÉÒÔÖ±½ÓcoutÊä³ö 
-// stringµÄ¸³Öµ 
-// ÎªÊ²Ã´Òª¼Óelse ±àÒëÆ÷ÎŞ·¨ÖªµÀelse¸öÄÄ¸öifÅä¶Ô
-int main()
-{
-	vector<int> v(1, 1);
-	for (int i = 1; i < 10; i++)
-		v.push_back(i);
-	
-	vector<string> ss;
-	ss = summaryRanges(v);
-	for (int i = 0; i < ss.size(); i++)
-		cout <<i<<" "<< ss[i] << endl;
-	system("pause");
-}
+// vectorä½œä¸ºè¿”å›å€¼ ç›´æ¥è¿”å›ä¸éœ€è¦å¼•ç”¨
+// stringä½œä¸ºvectorç±»å‹è¾“å‡º stringå¤´æ–‡ä»¶å¯ä»¥ç›´æ¥coutè¾“å‡º 
+// stringçš„èµ‹å€¼ 
+// ä¸ºä»€ä¹ˆè¦åŠ else ç¼–è¯‘å™¨æ— æ³•çŸ¥é“elseä¸ªå“ªä¸ªifé…å¯¹
