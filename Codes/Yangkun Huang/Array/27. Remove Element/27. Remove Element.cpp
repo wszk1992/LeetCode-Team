@@ -33,20 +33,7 @@ int removeElement(vector<int>& nums, int val) {
 	//	return n;
 	//}
 }
-// Ö´ĞĞerase²Ù×÷ºó£¬²»ÄÜ¶ÁÈ¡µü´úÆ÷ÄÚÈİ
-// erase·µ»ØÖ¸ÏòËùÉ¾³ıÔªËØÏÂÒ»¸öÎ»ÖÃµÄµü´úÆ÷
-// vector.swapµÄÊ¹ÓÃ Á½¸övectorÔªËØµÄ½»»» ÓÃÓÚÄÚ´æÊÍ·Å
-// ±ê×¼swap ½»»»Á½¸öÕûĞÍ²ÎÊı
-
-int main()
-{
-	vector<int> v(1, 1),v2(2,2);
-	for (int i = 0; i < 10; i++)
-		v.push_back(i);
-	//v.swap(v2);
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i] << endl;
-	cout << " " << removeElement(v, 1) << endl; for (int i = 0; i < v.size(); i++)
-		cout << v[i] << endl;
-	system("pause");
-}
+// æ‰§è¡Œeraseæ“ä½œåï¼Œä¸èƒ½è¯»å–è¿­ä»£å™¨å†…å®¹
+// eraseè¿”å›æŒ‡å‘æ‰€åˆ é™¤å…ƒç´ ä¸‹ä¸€ä¸ªä½ç½®çš„è¿­ä»£å™¨
+// vector.swapçš„ä½¿ç”¨ ä¸¤ä¸ªvectorå…ƒç´ çš„äº¤æ¢ ç”¨äºå†…å­˜é‡Šæ”¾
+// æ ‡å‡†swap äº¤æ¢ä¸¤ä¸ªæ•´å‹å‚æ•°
