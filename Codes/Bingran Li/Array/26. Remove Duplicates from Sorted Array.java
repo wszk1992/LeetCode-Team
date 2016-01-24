@@ -30,7 +30,7 @@ public class Solution {
             }
            i=j;
        }
-      // move elements,trying to ...but seems awkward
+      // move elements,trying to ..............but seems awkward
       
     
       // return length
