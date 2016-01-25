@@ -13,23 +13,20 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
 		nums1.erase(iter, nums1.end());
 	}
 	else
-	{
-		int tag = nums1.size() - m;
-		for (; iter < nums1.end() - tag && iter2 < nums2.end(); iter++)
+	{ 
+		int tag = nums1.size() - m;                                      // ±ê¼Ç1ÖĞ¶àÓàµÄÔªËØ
+		for (; iter < nums1.end() - tag && iter2 < nums2.end(); iter++)  // °Ñ2µÄÔªËØ²åÈë1ÖĞ
 			if (*iter2 <= *iter)
 			{
 			iter = nums1.insert(iter, *iter2);
 			iter2++;
 			}
-		if (iter < nums1.end() - tag && iter2 == nums2.end())
-			iter++;
 		for (; iter2 < nums2.end(); iter++, iter2++)
 			iter = nums1.insert(iter, *iter2);
-		if (n != 0)
+		if (n != 0)                                                     // É¾³ı1ÖĞ¶àÓàµÄÔªËØ
 			nums1.erase(nums1.end() - tag, nums1.end());
 	}
 }
 
-// å®¹å™¨æ›´æ–°åè¿­ä»£å™¨ä¼šå¤±æ•ˆ
-// insertè¿”å›å€¼
-
+// ÈİÆ÷¸üĞÂºóµü´úÆ÷»áÊ§Ğ§
+// insert·µ»ØÖµ

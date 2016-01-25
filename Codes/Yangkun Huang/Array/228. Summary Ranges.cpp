@@ -20,23 +20,15 @@ string format(int begin, int end)
 vector<string> summaryRanges(vector<int>& nums) {
 	vector<string> str;
 	for (vector<int>::iterator iter = nums.begin(), tag = nums.begin(); iter != nums.end(); iter++)
-		if (iter + 1 != nums.end())
+		if (*iter + 1 < *(iter + 1) || iter + 1 == nums.end())
 		{
-		if (*iter + 1 < *(iter + 1))
-		{
-			str.push_back(format(*tag, *iter));
-			tag = iter + 1;
-		}
-		}
-		else
-		{
-			str.push_back(format(*tag, *iter));
-			tag = iter + 1;
+		str.push_back(format(*tag, *iter));
+		tag = iter + 1;
 		}
 	return str;
 }
 
-// vectorä½œä¸ºè¿”å›å€¼ ç›´æ¥è¿”å›ä¸éœ€è¦å¼•ç”¨
-// stringä½œä¸ºvectorç±»å‹è¾“å‡º stringå¤´æ–‡ä»¶å¯ä»¥ç›´æ¥coutè¾“å‡º 
-// stringçš„èµ‹å€¼ 
-// ä¸ºä»€ä¹ˆè¦åŠ else ç¼–è¯‘å™¨æ— æ³•çŸ¥é“elseä¸ªå“ªä¸ªifé…å¯¹
+// vector×÷Îª·µ»ØÖµ Ö±½Ó·µ»Ø²»ĞèÒªÒıÓÃ
+// string×÷ÎªvectorÀàĞÍÊä³ö stringÍ·ÎÄ¼ş¿ÉÒÔÖ±½ÓcoutÊä³ö 
+// stringµÄ¸³Öµ 
+// ÎªÊ²Ã´Òª¼Óelse ±àÒëÆ÷ÎŞ·¨ÖªµÀelse¸öÄÄ¸öifÅä¶Ô

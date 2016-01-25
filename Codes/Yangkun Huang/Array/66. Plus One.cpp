@@ -19,6 +19,7 @@ vector<int> plusOne(vector<int>& digits) {
 			digits.insert(digits.begin(), 1);
 		return digits;
 }
-//反向迭代器的使用
-//*digits.begin()不用加括号
+
+// 反向迭代器的使用
+// *digits.begin()不用加括号
 
