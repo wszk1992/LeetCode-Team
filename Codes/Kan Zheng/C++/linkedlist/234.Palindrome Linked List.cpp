@@ -29,3 +29,20 @@ public:
         return true;
     }
 };
+
+//advanced method
+p = head;
+bool judge(ListNode *head)
+{
+	if (head == NULL)
+		return true;
+	if (judge(head->next) == false)
+		return false;
+	if (p->val != head->val)
+		return false;
+	else
+	{
+		p = p->next;
+		return true;
+	}
+}
