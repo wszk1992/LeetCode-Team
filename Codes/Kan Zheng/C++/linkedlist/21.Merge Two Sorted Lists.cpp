@@ -55,3 +55,7 @@ public:
         
     }
 };
+
+//1:add fake head
+
+//2:use recursion
