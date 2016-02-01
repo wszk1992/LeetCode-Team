@@ -1,7 +1,7 @@
 public class Solution {
     public String addBinary(String a, String b) {
         
-        // solution 1 : beat 91%------WATCH KAN CODE
+        // solution 1 : beat 91%------------------->WATCH KAN CODE
         String A = "0" + a;
         String B = "0" + b;
         char [] shortArray; 
