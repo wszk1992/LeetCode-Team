@@ -1,5 +1,5 @@
-// method 1
 
+// method 1
 int romanToInt(string s) {
         int left_result=0, right_result=0,temp_result=0;
         // for(auto c:s)
