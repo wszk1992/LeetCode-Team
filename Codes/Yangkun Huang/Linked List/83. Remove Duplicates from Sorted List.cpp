@@ -1,7 +1,7 @@
 ListNode* deleteDuplicates(ListNode* head) {
 	ListNode headNode(0);
 	headNode.next = head;
-	ListNode *p = headNode.next, *q = &headNode;
+	ListNode *p = headNode.next;
 	if (head == NULL)
 		return head;
 	for (; p->next != NULL;)
