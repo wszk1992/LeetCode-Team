@@ -1,0 +1,20 @@
+int compareVersion(string version1, string version2) {
+        int v1=version1.find('.'),v2=version2.find('.');
+        //先存分离结果 边分离边比较
+        string s11=version1.substr(0,v1);
+        string s21=version2.substr(0,v2);
+        int as=s11.length(),bs=s21.length();
+        for(int i=0;i<abs(as-bs);i++)
+        as<bs?s11.insert(s11.begin(),'0'):s21.insert(s21.begin(),'0');
+        string::iterator i=s11.begin(),j=s21.begin();
+        for(;i<s11.end()&&j<s21.end();i++,j++)
+        {
+            if(*i<*j)
+            return -1;
+            if(*i>*j)
+            return 1;
+        }
+        string s12=version1.substr(v1,version1.length()-v1);
+        string s22=version2.substr(v2,version2.length()-v2);
+        return 0;
+    }
