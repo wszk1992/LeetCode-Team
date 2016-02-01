@@ -17,7 +17,7 @@ string countAndSay(int n) {
 	return s;
 }
 
-string recursion(int n)
+string countAndSay(int n) // recursion
 {
 	if (n == 1)
 		return "1";
