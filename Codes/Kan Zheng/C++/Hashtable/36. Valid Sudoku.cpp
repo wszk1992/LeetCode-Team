@@ -1,19 +1,19 @@
 class Solution {
-public
-    bool isValidSudoku(vectorvectorchar& board) {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
         return checkColumn(board)&&checkRow(board)&&checkBlock(board);
     }
-    bool checkColumn(vectorvectorchar& board){
-        for(int i=0;i9;i++)
+    bool checkColumn(vector<vector<char>>& board){
+        for(int i=0;i<9;i++)
         {
-            unordered_setchar set;
-            for(int j=0;j9;j++)
+            unordered_set<char> set;
+            for(int j=0;j<9;j++)
             {
                 if(board[i][j]=='.')
                     continue;
                 else if (set.find(board[i][j])!=set.end())
                 {
-                    coutcheckColumn false!ii jjendl;
+                    cout<<"checkColumn false!"<<"i:"<<i<<" j:"<<j<<endl;
                     return false;
                 }
                 else
@@ -22,17 +22,17 @@ public
         }
         return true;
     }
-    bool checkRow(vectorvectorchar& board){
-        for(int j=0;j9;j++)
+    bool checkRow(vector<vector<char>>& board){
+        for(int j=0;j<9;j++)
         {
-            unordered_setchar set;
-            for(int i=0;i9;i++)
+            unordered_set<char> set;
+            for(int i=0;i<9;i++)
             {
                 if(board[i][j]=='.')
                     continue;
                 else if (set.find(board[i][j])!=set.end())
                 {
-                    coutcheckRow false!ii jjendl;
+                    cout<<"checkRow false!"<<"i:"<<i<<" j:"<<j<<endl;
                     return false;
                 }
                 else
@@ -41,21 +41,21 @@ public
         }
         return true;
     }
-    bool checkBlock(vectorvectorchar& board){
-        for(int i=0;i9;i+=3)
+    bool checkBlock(vector<vector<char>>& board){
+        for(int i=0;i<9;i+=3)
         {
-            for(int j=0;j9;j+=3)
+            for(int j=0;j<9;j+=3)
             {
-                unordered_setchar set;
-                for(int k=0;k3;k++)
+                unordered_set<char> set;
+                for(int k=0;k<3;k++)
                 {
-                    for(int l=0;l3;l++)
+                    for(int l=0;l<3;l++)
                     {
                         if(board[i+k][j+l]=='.')
                             continue;
                         else if (set.find(board[i+k][j+l])!=set.end())
                         {
-                            coutcheckBlock false!ii jj kk llendl;
+                            cout<<"checkBlock false!"<<"i:"<<i<<" j:"<<j<<" k:"<<k<<" l:"<<l<<endl;
                             return false;
                         }
                         else
