@@ -1,3 +1,21 @@
+
+// recursive
+vector<vector<int> > levelOrder(TreeNode *root) {
+	vector<vector<int>> result;
+	traverse(root, 1, result);
+	return result;
+}
+void traverse(TreeNode *root, size_t level, vector<vector<int>> &result) {
+	if (!root) return;
+	if (level > result.size())
+		result.push_back(vector<int>());
+	result[level - 1].push_back(root->val);
+	traverse(root->left, level + 1, result);
+	traverse(root->right, level + 1, result);
+}
+
+
+// iterative
 vector<vector<int>> levelOrder(TreeNode* root) {
         vector<vector<int>> v;
         queue<TreeNode*> q;
@@ -5,10 +23,10 @@ vector<vector<int>> levelOrder(TreeNode* root) {
             q.push(root);
         while(!q.empty())
         {
-            vector<int> vi;
+            vector<int> level;                 // store nodes at each level
             for(int i=0;i<q.size();i++)   
             {
-                vi.push_back(q.front()->val);
+                level.push_back(q.front()->val);
                 q.push(q.front());
                 q.pop();
             }
@@ -20,7 +38,7 @@ vector<vector<int>> levelOrder(TreeNode* root) {
                 q.push(q.front()->right);
                 q.pop();
             }
-            v.push_back(vi);
+            v.push_back(level);
         }
         return v;
     }
