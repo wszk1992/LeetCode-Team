@@ -43,3 +43,4 @@ public:
         return -1;
     }
 };
+//KMP algorithm
