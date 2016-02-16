@@ -26,5 +26,13 @@ ListNode* oddEvenList(ListNode* head) {
 	return head;
 	}
 
-// Ö¸ŐëłőĘźťŻ
+// ָ���ʼ��
 
+int main()
+{
+	ListNode a(1);
+	ListNode *p = &a;
+	p=oddEvenList(p);
+	cout << p->val << endl;
+	system("pause");
+}

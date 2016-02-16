@@ -20,5 +20,6 @@ int top() {
 }
 
 int getMin() {
+	if (!min.empty())
 		return min.top();
 }

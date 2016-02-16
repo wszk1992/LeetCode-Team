@@ -1,4 +1,4 @@
-bool wordPattern(string pattern, string str) {
+    bool wordPattern(string pattern, string str) {
     map<char,string> m;
     vector<string> s;
     map<char,string>::iterator iter;
@@ -27,4 +27,4 @@ bool wordPattern(string pattern, string str) {
         return false;
     }}
     return true;
-    }                        
+    }                                                             // testcase¿¼ÂÇ²»È«
