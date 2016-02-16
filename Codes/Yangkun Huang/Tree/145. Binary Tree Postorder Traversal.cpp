@@ -44,7 +44,7 @@ private:
 			x = y;
 			y = z;
 		}
-	}􄃮􄬝􄔵􄒛􀤽􂮳􄌞􁒳􀌹􂮳􁝯􁰸􃐂􂗨
+	}
 	static void visit_reverse(TreeNode* from, TreeNode *to,
 		std::function< void(const TreeNode*) >& visit) {
 		TreeNode *p = to;
