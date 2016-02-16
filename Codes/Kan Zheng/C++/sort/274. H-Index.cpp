@@ -6,8 +6,7 @@ def h_index(citations)
     citations.each_index{|x| 
     if(citations[x]>=citations.length-x) 
         h = citations.length-x
-        break
+        return h
     end
     }
-    return h
 end
