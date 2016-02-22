@@ -1,36 +1,34 @@
 vector<vector<int>> fourSum(vector<int>& nums, int target) {
-  vector<vector<int>> result;
-  if (nums.size() < 4) 
-  return result;
-  sort(nums.begin(), nums.end());
-  auto last = nums.end();
-  for (auto a = nums.begin(); a < prev(last, 3); ++a) {
-    for (auto b = next(a); b < prev(last, 2); ++b) {
-      auto c = next(b);
-      auto d = prev(last);
-      while (c < d) {
-        if (*a + *b + *c + *d < target) {
-          ++c;
-          
-        } 
-        else if (*a + *b + *c + *d > target) {
-          --d;
-          
+        // method 1
+        // 先排序然后左右夹逼
+        // time complexity O(n^3) space complexity O(1)
+        vector<vector<int>> result;
+        if (nums.size() < 4) 
+        return result;
+        sort(nums.begin(), nums.end());
+        auto last = nums.end();
+        for (auto a = nums.begin(); a < prev(last, 3); ++a) { // prev之前3个位置
+            for (auto b = next(a); b < prev(last, 2); ++b) {  // next(b)b的下一个位置
+                auto c = next(b);
+                auto d = prev(last);                          // last前一个位置
+                while (c < d) {
+                    if (*a + *b + *c + *d < target) {
+                        ++c;
+                    } 
+                    else if (*a + *b + *c + *d > target) 
+                        --d;
+                        else{
+                        result.push_back({ *a, *b, *c, *d });
+                        ++c;
+                        --d;
+                        }
+                    }
+                }
         }
-        else {
-          result.push_back({ *a, *b, *c, *d });
-          ++c;
-          --d;
+        sort(result.begin(), result.end());   // vector排序?
+        result.erase(unique(result.begin(), result.end()), result.end());  // unique()从输入序列中“删除”所有相邻的重复元素
+        return result; // 把重复的元素移到后面去了，然后依然保存到了原数组中，然后 返回去重后最后一个元素的地址//
         }
-        
-      }
-      
-    }
-    
-  }
-  sort(result.begin(), result.end());
-  result.erase(unique(result.begin(), result.end()), result.end());
-  return result;
   
   
   // method 2  
@@ -60,6 +58,4 @@ result.push_back(vec);
 sort(result.begin(), result.end());
 result.erase(unique(result.begin(), result.end()), result.end());
 return result;
-}
-  
 }

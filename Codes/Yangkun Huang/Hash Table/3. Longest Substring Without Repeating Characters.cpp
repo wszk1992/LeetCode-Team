@@ -14,5 +14,4 @@ int lengthOfLongestSubstring(string s) {
             
         }
         return max((int)s.size() - start, max_len); // s.size() is not int???
-                                                    // size_t is unsigned int
     }
