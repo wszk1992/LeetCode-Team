@@ -1,16 +1,16 @@
-vector<vector<int>> fourSum(vector<int>& nums, int target) {
+ï»¿vector<vector<int>> fourSum(vector<int>& nums, int target) {
         // method 1
-        // ÏÈÅÅĞòÈ»ºó×óÓÒ¼Ğ±Æ
+        // å…ˆæ’åºç„¶åå·¦å³å¤¹é€¼
         // time complexity O(n^3) space complexity O(1)
         vector<vector<int>> result;
         if (nums.size() < 4) 
         return result;
         sort(nums.begin(), nums.end());
         auto last = nums.end();
-        for (auto a = nums.begin(); a < prev(last, 3); ++a) { // prevÖ®Ç°3¸öÎ»ÖÃ
-            for (auto b = next(a); b < prev(last, 2); ++b) {  // next(b)bµÄÏÂÒ»¸öÎ»ÖÃ
+        for (auto a = nums.begin(); a < prev(last, 3); ++a) { // prevä¹‹å‰3ä¸ªä½ç½®
+            for (auto b = next(a); b < prev(last, 2); ++b) {  // next(b)bçš„ä¸‹ä¸€ä¸ªä½ç½®
                 auto c = next(b);
-                auto d = prev(last);                          // lastÇ°Ò»¸öÎ»ÖÃ
+                auto d = prev(last);                          // lastå‰ä¸€ä¸ªä½ç½®
                 while (c < d) {
                     if (*a + *b + *c + *d < target) {
                         ++c;
@@ -25,37 +25,37 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
                     }
                 }
         }
-        sort(result.begin(), result.end());   // vectorÅÅĞò?
-        result.erase(unique(result.begin(), result.end()), result.end());  // unique()´ÓÊäÈëĞòÁĞÖĞ¡°É¾³ı¡±ËùÓĞÏàÁÚµÄÖØ¸´ÔªËØ
-        return result; // °ÑÖØ¸´µÄÔªËØÒÆµ½ºóÃæÈ¥ÁË£¬È»ºóÒÀÈ»±£´æµ½ÁËÔ­Êı×éÖĞ£¬È»ºó ·µ»ØÈ¥ÖØºó×îºóÒ»¸öÔªËØµÄµØÖ·//
-        }
+        sort(result.begin(), result.end());   // vectoræ’åº?
+        result.erase(unique(result.begin(), result.end()), result.end());  // unique()ä»è¾“å…¥åºåˆ—ä¸­â€œåˆ é™¤â€æ‰€æœ‰ç›¸é‚»çš„é‡å¤å…ƒç´ 
+        return result; // æŠŠé‡å¤çš„å…ƒç´ ç§»åˆ°åé¢å»äº†ï¼Œç„¶åä¾ç„¶ä¿å­˜åˆ°äº†åŸæ•°ç»„ä¸­ï¼Œç„¶å è¿”å›å»é‡åæœ€åä¸€ä¸ªå…ƒç´ çš„åœ°å€
+        
   
   
-  // method 2  
+  // method 2
+  // average O(n^2)ô…–Œworst O(n^4) space O(n^2)
   vector<vector<int>> result;
-if (nums.size() < 4) return result;
-sort(nums.begin(), nums.end());
-unordered_multimap<int, pair<int, int>> cache;
-for (int i = 0; i + 1 < nums.size(); ++i)
-for (int j = i + 1; j < nums.size(); ++j)
-cache.insert(make_pair(nums[i] + nums[j], make_pair(i, j)));
-for (auto i = cache.begin(); i != cache.end(); ++i) {
-int x = target - i->first;
-auto range = cache.equal_range(x);
-for (auto j = range.first; j != range.second; ++j) {
-auto a = i->second.first;
-auto b = i->second.second;
-auto c = j->second.first;
-auto d = j->second.second;
-if (a != c && a != d && b != c && b != d) {
-vector<int> vec = { nums[a], nums[b], nums[c], nums[d] };
-sort(vec.begin(), vec.end());
-result.push_back(vec);
-}
-
-}
-}
-sort(result.begin(), result.end());
-result.erase(unique(result.begin(), result.end()), result.end());
-return result;
+  if (nums.size() < 4) return result;
+  sort(nums.begin(), nums.end());
+  unordered_multimap<int, pair<int, int>> cache;
+  for (int i = 0; i + 1 < nums.size(); ++i)
+	  for (int j = i + 1; j < nums.size(); ++j)
+		  cache.insert(make_pair(nums[i] + nums[j], make_pair(i, j)));
+  for (auto i = cache.begin(); i != cache.end(); ++i) {
+	  int x = target - i->first;
+	  auto range = cache.equal_range(x);
+	  for (auto j = range.first; j != range.second; ++j) {
+		  auto a = i->second.first;
+		  auto b = i->second.second;
+		  auto c = j->second.first;
+		  auto d = j->second.second;
+		  if (a != c && a != d && b != c && b != d) {       // a b c d æ˜¯åºå·
+			  vector<int> vec = { nums[a], nums[b], nums[c], nums[d] };
+			  sort(vec.begin(), vec.end());
+			  result.push_back(vec);
+		  }
+	  }
+  }
+  sort(result.begin(), result.end());
+  result.erase(unique(result.begin(), result.end()), result.end());
+  return result;
 }
