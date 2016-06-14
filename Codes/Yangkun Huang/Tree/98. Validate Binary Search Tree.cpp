@@ -1,24 +1,26 @@
   bool isValidBST(TreeNode* root) {
-        int temp=INT_MIN;          // 递归返回时传递前继节点的值 
-        bool tag=false;            // special condition for root node
-        return inorder(root, &temp, &tag);
-    }
-    bool inorder(TreeNode* root,int* temp, bool* tag)
-    {
-        if(root)
-        {
-            if(!inorder(root->left,temp,tag))
-            return false;
-            if(*tag)
-            if(*temp>=root->val) 
-            return false;
-            if(!*tag)
-            *tag=true;
-            *temp=root->val;
-            if(!inorder(root->right,temp,tag))
-            return false;
-        }
-        return true;
+        int pre_node=INT_MIN;          // 递归返回时传递前继节点的值 
+		bool isRoot = true;            // special condition for root node
+		return inorder(root, &pre_node, &isRoot);
+  }
+  bool inorder(TreeNode* root, int* pre_node, bool* isRoot)
+  {
+	  if (root)
+	  {
+		  if (!inorder(root->left, pre_node, isRoot))
+			  return false;
+		  if (!*isRoot)
+		  {
+			  if (*pre_node >= root->val)   // if - else的配对
+				  return false;
+		  }
+		  else
+			  *isRoot = false;
+		  *pre_node = root->val;
+		  if (!inorder(root->right, pre_node, isRoot))
+			  return false;
+	  }
+	  return true;;
     }
     
     
