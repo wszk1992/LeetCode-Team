@@ -17,8 +17,7 @@
     }
 	
 	// method 2 static dp
-	 int numSquares(int n) 
-    {
+	int numSquares(int n) {
         if (n <= 0)
         {
             return 0;
