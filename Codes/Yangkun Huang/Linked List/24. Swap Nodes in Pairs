@@ -1,0 +1,25 @@
+    // iterative
+    ListNode* swapPairs(ListNode* head) {
+        ListNode *dummy = new ListNode(0), *last; // key point -- made mistake here
+        last = dummy;
+        dummy->next = head;
+        while (head && head->next) {
+            ListNode *tmp=head->next->next;
+            head->next->next=head;
+            head->next=tmp;
+            last->next=head->next;
+            last=head;
+            head=head->next;
+        }
+        return dummy->next;
+    }
+    
+    // recursive
+    ListNode* swapPairs(ListNode* head) {
+        if (!head||!head->next) 
+            return head;
+        ListNode *p = head->next, *q = p->next;
+        p->next = head;
+        head->next = swapPairs(q);
+        return p;
+    }
