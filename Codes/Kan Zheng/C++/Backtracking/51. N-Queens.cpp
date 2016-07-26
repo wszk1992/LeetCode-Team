@@ -12,19 +12,14 @@ public:
             res.push_back(s);
             return;
         }
-        int flag = 0;
         for(int i = 0; i < n; i++) {
             if(!availablePos(s, n, row, i)) {
                 continue;
             }else {
-                flag = 1;
                 s[row][i] = 'Q';
                 solveNQueensHelper(res, s, n, row + 1);
                 s[row][i] = '.';
             }
-        }
-        if(!flag) {
-            return;
         }
     }
     
