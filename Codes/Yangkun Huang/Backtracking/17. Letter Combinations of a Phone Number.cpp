@@ -18,6 +18,6 @@
             int m= digits[pos]>'7' ? 1 : 0; // '7' has four possible letters
             s+='a'+3*(digits[pos]-'2')+i+m;
             letterCombinations(res, digits, s, pos+1);
-            s=s.substr(0, s.size()-1);
+            s=s.substr(0, s.size()-1);  // s.pop_back() 
         }
     }
