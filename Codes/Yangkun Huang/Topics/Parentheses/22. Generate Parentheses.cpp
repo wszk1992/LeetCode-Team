@@ -1,9 +1,10 @@
-    // second version -- without right_paren
-    vector<string> generateParenthesis(int n) {
+   // second version -- without right_paren
+   vector<string> generateParenthesis(int n) {
         vector<string> res;
         if(n){
             string s;
-            generateParenthesis(res, s, n, 0);
+            int left=0;
+            generateParenthesis(res, s, n, left);
         }
         return res;
     }
@@ -22,8 +23,8 @@
         }
     }
     
-    // first version
-    vector<string> generateParenthesis(int n) {
+   // first version
+   vector<string> generateParenthesis(int n) {
         vector<string> res;
         if(n){
             string s;

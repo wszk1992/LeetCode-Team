@@ -4,7 +4,7 @@
         totalNQueens(flag, 0, n, res);
 	return res;
     }
-    void totalNQueens(std::vector<int> &flag, int row, int &n, int &res) {
+    void totalNQueens(vector<int> &flag, int row, int &n, int &res) {
         if (row == n) {
             ++res;
 	    return;

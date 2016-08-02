@@ -12,6 +12,7 @@
             return;
         }
         // current element is S[step]
+        // recursion goes from buttom-up while loop goes from top-down
         subsets(S, path, step + 1, result);  // first return all possible subsets of following elements from step+1 to end
         path.push_back(S[step]);             // add current element S[step]
         subsets(S, path, step + 1, result);  // attach all subsets of following elements
