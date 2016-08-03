@@ -27,3 +27,5 @@ public:
         return num == numCourses;
     }
 };
+
+//try dfs
