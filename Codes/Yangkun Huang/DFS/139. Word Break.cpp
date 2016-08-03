@@ -27,7 +27,7 @@
     
     // DFS
     // how to reduce the time complexity
-    map<int, bool> record;  // so important!!! would TLE without this!
+    unordered_map<int, bool> record;  // so important to use dp!!! would TLE without this!
     bool wordBreak(string s, unordered_set<string>& wordDict) {
         int min_len=0, max_len=0;
         for(auto w:wordDict){   // find minimum and maximum length of word in wordDict
