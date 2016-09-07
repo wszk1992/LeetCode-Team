@@ -1,7 +1,7 @@
  // method 1 
- // postorder×îºóÒ»¸öÎª¸ù½Úµã£¬ÕÒµ½¸ù½ÚµãÔÚinorderÖĞµÄÎ»ÖÃ
- // inorderÖĞ·Ö±ğÕÒµ½×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷µÄĞòÁĞ
- // postorderÖĞÕÒµ½×óÓÒ×ÓÊ÷µÄĞòÁĞ
+ // postorderæœ€åä¸€ä¸ªä¸ºæ ¹èŠ‚ç‚¹ï¼Œæ‰¾åˆ°æ ¹èŠ‚ç‚¹åœ¨inorderä¸­çš„ä½ç½®
+ // inorderä¸­åˆ†åˆ«æ‰¾åˆ°å·¦å­æ ‘å’Œå³å­æ ‘çš„åºåˆ—
+ // postorderä¸­æ‰¾åˆ°å·¦å³å­æ ‘çš„åºåˆ—
  TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
     if (inorder.size() == 0 || postorder.size() == 0)
         return 0;
@@ -14,24 +14,21 @@
     int i = postorder.size() - 2;
     int j = inorder.size() - 1;
     TreeNode* node;
-    while (true)
-    {
-        if (st.top()->val == inorder[j]) // ÅĞ¶Ï¸ù½ÚµãµÄinorderÇ°¼ÌÊÇ¸ù½Úµã»¹ÊÇÔÚÓÒ×ÓÊ÷ÖĞ(Ö±µ½×îÓÒÏÂ´¦)
-        {
+    while (true){
+        if (st.top()->val == inorder[j]){ // åˆ¤æ–­æ ¹èŠ‚ç‚¹çš„inorderå‰ç»§æ˜¯æ ¹èŠ‚ç‚¹è¿˜æ˜¯åœ¨å³å­æ ‘ä¸­(ç›´åˆ°æœ€å³ä¸‹å¤„)
             node = st.top();
             st.pop();
             j--;
             if (j < 0) // check if it reachs the head of inorder
                break; 
-            if (st.empty() || st.top()->val != inorder[j])  // ÅĞ¶ÏinorderÇ°¼ÌÊÇÇ×½Úµã»¹ÊÇÔÚ×ó×ÓÊ÷ÖĞ(ÊÇ·ñÓĞ×ó×ÓÊ÷)
-            {   // inorderÇ°¼ÌÔÚ×ó×ÓÊ÷ÖĞ
-                node->left = new TreeNode(postorder[i]); // ×óº¢×ÓÊ¼ÖÕÔÚĞòÁĞÇ°°ë²¿·Ö£¬ËùÒÔ´ËÊ±iÒ»¶¨ÊÇÍ£ÔÚ×óº¢×ÓÉÏ
-                i--;                                     // i--Ö¸ÏòÇ°Ò»¸ö×óº¢×Ó»ò×Ô¼ºµÄ×óº¢×Ó
-                st.push(node->left);                     // ·ÅÈëstackÖĞ£¬Ïàµ±ÓÚÌæ»»µôµ±Ç°node£¬ÏÂÒ»²½Ñ­»·¿ÉÒÔÅĞ¶ÏÇ×½ÚµãÊÇ²»ÊÇÇ°¼Ì
+            if (st.empty() || st.top()->val != inorder[j]){  // åˆ¤æ–­inorderå‰ç»§æ˜¯äº²èŠ‚ç‚¹è¿˜æ˜¯åœ¨å·¦å­æ ‘ä¸­(æ˜¯å¦æœ‰å·¦å­æ ‘)
+                // inorderå‰ç»§åœ¨å·¦å­æ ‘ä¸­
+                node->left = new TreeNode(postorder[i]); // å·¦å­©å­å§‹ç»ˆåœ¨åºåˆ—å‰åŠéƒ¨åˆ†ï¼Œæ‰€ä»¥æ­¤æ—¶iä¸€å®šæ˜¯åœåœ¨å·¦å­©å­ä¸Š
+                i--;                                     // i--æŒ‡å‘å‰ä¸€ä¸ªå·¦å­©å­æˆ–è‡ªå·±çš„å·¦å­©å­
+                st.push(node->left);                     // æ”¾å…¥stackä¸­ï¼Œç›¸å½“äºæ›¿æ¢æ‰å½“å‰nodeï¼Œä¸‹ä¸€æ­¥å¾ªç¯å¯ä»¥åˆ¤æ–­äº²èŠ‚ç‚¹æ˜¯ä¸æ˜¯å‰ç»§
             }
         }
-        else  // ¹¹½¨ÓÒ×ÓÊ÷
-        {
+        else{  // æ„å»ºå³å­æ ‘
             node = new TreeNode(postorder[i]);
             i--;
             st.top()->right = node;
@@ -47,8 +44,7 @@
  TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
 	 return buildTree(begin(inorder), end(inorder), begin(postorder), end(postorder));
  }
- TreeNode* buildTree(vector<int>::iterator in_fir, vector<int>::iterator in_las, vector<int>::iterator post_fir, vector<int>::iterator post_las)
- {
+ TreeNode* buildTree(vector<int>::iterator in_fir, vector<int>::iterator in_las, vector<int>::iterator post_fir, vector<int>::iterator post_las){
 	 if (in_fir == in_las || post_fir == post_las)
 		 return nullptr;
 

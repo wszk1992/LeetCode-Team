@@ -4,15 +4,13 @@
         queue<TreeNode*> q;
         if(root)
             q.push(root);
-        while(!q.empty())
-        {
+        while(!q.empty()){
             result.push_back(q.back()->val);
-            for(int i=0,j=q.size();i<j;i++) 
-            {
+            for(int i=0,j=q.size();i<j;i++){
                 if(q.front()->left)
-                q.push(q.front()->left);
+                   q.push(q.front()->left);
                 if(q.front()->right)
-                q.push(q.front()->right);
+                   q.push(q.front()->right);
                 q.pop();
             }
         }

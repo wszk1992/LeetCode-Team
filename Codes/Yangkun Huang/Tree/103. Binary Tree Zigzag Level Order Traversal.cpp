@@ -5,11 +5,9 @@ vector<vector<int> > zigzagLevelOrder(TreeNode *root) {
 	if (root)
 		q.push(root);
 	bool tag = false;
-	while (!q.empty())
-	{
+	while (!q.empty()){
 		vector<int> result;
-		for (int i = 0, j = q.size(); i<j; i++)
-		{
+		for (int i = 0, j = q.size(); i<j; i++){
 			result.push_back(q.front()->val);
 			if (q.front()->left)
 				q.push(q.front()->left);

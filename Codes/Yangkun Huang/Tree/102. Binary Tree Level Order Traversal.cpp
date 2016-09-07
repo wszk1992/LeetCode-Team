@@ -3,17 +3,14 @@ vector<vector<int>> levelOrder(TreeNode* root) {
         queue<TreeNode*> q;
         if(root)
             q.push(root);
-        while(!q.empty())
-        {
+        while(!q.empty()){
             vector<int> vi;
-            for(int i=0;i<q.size();i++)   
-            {
+            for(int i=0;i<q.size();i++){
                 vi.push_back(q.front()->val);
                 q.push(q.front());
                 q.pop();
             }
-            for(int i=0,j=q.size();i<j;i++) //循环过程中q.size()会改变
-            {
+            for(int i=0,j=q.size();i<j;i++){//脩颅禄路鹿媒鲁脤脰脨q.size()禄谩赂脛卤盲
                 if(q.front()->left)
                 q.push(q.front()->left);
                 if(q.front()->right)

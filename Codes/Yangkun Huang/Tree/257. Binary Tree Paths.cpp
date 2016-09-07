@@ -1,23 +1,20 @@
- vector<string> binaryTreePaths(TreeNode* root) {
-        vector<string> v;
-        if(!root)
-        return v;
-        string s;
-        path(root,false,s,v);
-        return v;
-    }
-    void path(TreeNode* root, bool hasbrother, string &s, vector<string> &v)
-    {
-        if(!root&&!hasbrother)     
-        {
-            s.erase(s.size()-2,2); //»•µÙ◊Ó∫Û∂‡”‡µƒ->
-            v.push_back(s);
-        }
-        if(root)
-        {
-            string t=s+to_string(root->val)+"->"; // preorder traversal
-            path(root->left,root->right!=NULL,t,v);// hasbrother≈–∂œ”“∫¢◊”Ω⁄µ„ «∑ÒŒ™NULL
-            path(root->right,true,t,v);            // ”“∫¢◊”≤ª”√÷ÿ∏¥≈–∂œ
-        }
-    }
-   
+  // bad space complexity
+  vector<string> binaryTreePaths(TreeNode* root) { 
+      vector<string> v; 
+      if(!root) 
+        return v; 
+      string s; 
+      path(root,false,s,v); 
+      return v; 
+  }
+  void path(TreeNode* root, bool hasbrother, string &s, vector<string> &v) { 
+      if(!root&&!hasbrother) { 
+        s.erase(s.size()-2,2); //ÂéªÊéâÊúÄÂêéÂ§ö‰ΩôÁöÑ-> 
+        v.push_back(s);
+      } 
+      if(root) { 
+        string t=s+to_string(root->val)+"->"; // preorder traversal 
+        path(root->left,root->right!=NULL,t,v);// hasbrotherÂà§Êñ≠Âè≥Â≠©Â≠êËäÇÁÇπÊòØÂê¶‰∏∫NULL 
+        path(root->right,true,t,v); // Âè≥Â≠©Â≠ê‰∏çÁî®ÈáçÂ§çÂà§Êñ≠ 
+      } 
+  }

@@ -1,11 +1,10 @@
    // method 1 time O(n) space O(logn)
-void flatten(TreeNode *root) {   // ´Ó×óÏÂ¿ªÊ¼
+   void flatten(TreeNode *root) {   // ä»Žå·¦ä¸‹å¼€å§‹
 	if (root == nullptr)
 		return;
 	flatten(root->left);
 	flatten(root->right);
-	if (root->left != nullptr)   // ·Ö±ð´¦ÀíºÃ×óÓÒ×ÓÊ÷ºóÔÙ¿ªÊ¼ºÏ²¢   
-	{
+	if (root->left != nullptr){   // åˆ†åˆ«å¤„ç†å¥½å·¦å³å­æ ‘åŽå†å¼€å§‹åˆå¹¶  
 		TreeNode *p = root->left;
 		while (p->right) 
 			p = p->right;
@@ -13,18 +12,19 @@ void flatten(TreeNode *root) {   // ´Ó×óÏÂ¿ªÊ¼
 		root->right = root->left;
 		root->left = nullptr;
 	}
-}
+   }
 
 
    // method 2 time O(n) space O(logn)
-   void flatten(TreeNode *root) {   // ´ÓÓÒÏÂ¿ªÊ¼
+   // suppose there is a dummy right child
+   void flatten(TreeNode *root) {   // ä»Žå³ä¸‹å¼€å§‹
 	   flatten(root, NULL);
    }
 
    TreeNode *flatten(TreeNode *root, TreeNode *tail) {    
 	   if (root == NULL) 
 		   return tail;
-	   root->right = flatten(root->left, flatten(root->right, tail)); // ºó°ë²¿·Öflatten(right,NULL) return right
-	   root->left = NULL;                                             // Ç°°ë²¿·Öflatten(left->left,right) return right
+	   root->right = flatten(root->left, flatten(root->right, tail)); // åŽåŠéƒ¨åˆ†flatten(right,NULL) return right
+	   root->left = NULL;                                             // å‰åŠéƒ¨åˆ†flatten(left->left,right) return right
 	   return root;
    }

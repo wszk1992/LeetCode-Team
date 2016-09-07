@@ -1,5 +1,5 @@
-    //  1. c++ can use stringstream and getline as string split in java and python
-    //  2. stack and queue can only be traversed once
+    // 1. c++ can use stringstream and getline as string split in java and python
+    // 2. stack and queue can only be traversed once
     // solution 1
     string simplifyPath(string path) {
         deque<string> stk;

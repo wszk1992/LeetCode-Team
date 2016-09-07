@@ -1,6 +1,3 @@
-   
-
-
    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
        return buildTree(begin(preorder), end(preorder),begin(inorder), end(inorder));
    }
@@ -11,8 +8,8 @@
        if (in_first == in_last) 
        return nullptr;
        auto root = new TreeNode(*pre_first);
-       auto inRootPos = find(in_first, in_last, *pre_first); // ÔÚin_first--in_lastÖÐÕÒµ½*pre_first
-       auto leftSize = distance(in_first, inRootPos);        // inorderÖÐ»®·Ö×óÓÒ×ÓÊ÷
+       auto inRootPos = find(in_first, in_last, *pre_first); // åœ¨in_first--in_lastä¸­æ‰¾åˆ°*pre_first
+       auto leftSize = distance(in_first, inRootPos);        // inorderä¸­åˆ’åˆ†å·¦å³å­æ ‘
        root->left = buildTree(next(pre_first), next(pre_first, leftSize + 1), in_first, next(in_first, leftSize));
        root->right = buildTree(next(pre_first, leftSize + 1), pre_last, next(inRootPos), in_last);
        return root;
